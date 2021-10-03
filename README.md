@@ -1,7 +1,7 @@
 # Accessibility-Checking-Tool
 A tool that detects various accessibility violations in web pages.
 
-## Tech Stack
+### Tech Stack
 - We'll be using jsdom and JavaScript because...
 - We won't be using ... because ...
 
