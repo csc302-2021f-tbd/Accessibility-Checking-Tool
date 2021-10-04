@@ -29,6 +29,6 @@ A tool that detects various accessibility violations in web pages.
 
 
 ### Meeting Notes
-dir: ``` /notes ```
+[`docs/meetings`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/docs/meetings)
 
 
