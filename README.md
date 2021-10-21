@@ -16,7 +16,7 @@ plugins on top of this core system to actually detect problems.
 sudo apt-get install -y nodejs`
 1. `sudo apt-get install npm `
 1. Clone this repository `git clone https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool`.
-1. To install or update dependencies, simply run `npm install` in the repository root.
+1. To install or update dependencies, simply run `npm install` in root dir.
 1. After building, to run the project, download an HTML file to check, rename it to page.HTML in root dir, then run:
    `node --experimental-specifier-resolution=node main.js` also in root dir.
    This will parse the document, run the plugin checks on it.
