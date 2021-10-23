@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+
 let file = "";
 const data = fs.readFileSync('./plugins/plugins.txt');
 file = data.toString();
