@@ -2,7 +2,7 @@ import * as module from './plugins/index.js';
 import * as fs from 'fs';
 import { JSDOM } from "jsdom";
 
-const html = fs.readFileSync("./page.html");
+const html = fs.readFileSync("./" + process.argv.slice(2));
 const dom = new JSDOM(html);
 // console.debug(dom.window.document.body.innerHTML);
 
