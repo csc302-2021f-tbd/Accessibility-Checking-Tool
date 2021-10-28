@@ -15,6 +15,7 @@ if [[ "$#" -ne 0 ]]; then
 	usage
 fi
 
+pyversion=echo python3 --version | grep "Python 3*\\.[0-9][0-9]*\\.[0-9][0-9]*"
 sudo apt-get install python
 sudo apt-get install npm
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - sudo apt-get install -y nodejs

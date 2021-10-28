@@ -23,3 +23,7 @@ plugins on top of this core system to actually detect problems.
 
 ## Meeting Notes
 [`docs/meetings`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/docs/meetings)
+
+## Packages used
+
+1. JSDOM
