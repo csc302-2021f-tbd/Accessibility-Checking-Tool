@@ -8,6 +8,15 @@ const dom = new JSDOM(html);
 
 let plugins = module.plugins;
 let report = new Array();
+let errors = 0;
 
 plugins.forEach(plugin => report.push(plugin(dom)));
-report.forEach(element => console.debug(element));
+report.forEach(element => {
+    if (element[0] !== ""){
+        console.debug(element[0]);
+    }
+        errors+= element[1];
+});
+
+if (errors === 0) console.debug("No errors/warnings found!");
+else console.debug(errors + " errors/warnings found");

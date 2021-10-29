@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage(){
-	echo "Usage: sh run.sh <html file>\n" >&2
+	echo "Usage: sh run.sh <html file>" >&2
 	exit 2
 }
 

@@ -1,2 +1,2 @@
-2.js
+missing-head-or-body-tag.js
 3.js
