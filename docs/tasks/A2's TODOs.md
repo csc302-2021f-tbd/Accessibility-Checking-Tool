@@ -1,10 +1,19 @@
-# Features to be implemented 
+# A2 TODOs
 
+## Features to be implemented
 
-# Breakdown of Each Feature
+Basic plugins are what we expect to complete for this project. Extra plugins are what we will implement after ensuring that basic is completed.
 
+### Basic
 
-# Task Splitup
+- basic item1
 
+### Extra
 
-# Acceptance Criteria For Each Feature
+- extra item1
+
+## Breakdown of Each Feature
+
+## Task Splitup
+
+## Acceptance Criteria For Each Feature
