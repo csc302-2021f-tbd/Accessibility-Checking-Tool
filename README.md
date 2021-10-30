@@ -15,7 +15,6 @@ plugins on top of this core system to actually detect problems.
 1. Clone this repository `git clone https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool`.
 1. Install the current [Node.js](https://nodejs.org/en/download/current/).
 1. Install npm.
-1. Install python.
 1. To install or update dependencies, run `npm install` in root dir.
 1. After building, to run the project, download an HTML file to check, then run:
    `sh run.py <html page>` in root dir.
