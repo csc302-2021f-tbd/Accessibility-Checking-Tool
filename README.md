@@ -7,8 +7,8 @@ A pedagogical model of a tool that detects accessibility problems in web pages, 
 - NodeJS
 - jsdom
 
-We will build a core system using the leading jsdom library to parse HTML, 
-plugins on top of this core system to actually detect problems.
+Our project is a JS engine that loads JS plugins, each of which is responsible for checking for one accessibility violation. 
+The engine loads the plugins and runs all of them on a local HTML page that is given as an argument.
 
 ## Getting started
 
@@ -18,7 +18,7 @@ plugins on top of this core system to actually detect problems.
 1. To install or update dependencies, run `npm install` in root dir.
 1. After building, to run the project, download an HTML file to check, then run:
    `sh run.py <html page>` in root dir.
-   This will parse the document, run the plugin checks on it.
+   This will parse the document, run the plugin checks on it. There are [`samplepages/`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/samplepages) to quickly check our program
 
 ## Milestones
 
