@@ -27,6 +27,26 @@ The engine loads the plugins and runs all of them on a local HTML page that is g
 1. Build the rest of the plugins specified in [`docs/tasks/A2s TODOs`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/blob/main/docs/tasks/A2s%20TODOs.md)
 1. Check for invalid plugins in our engine
 
+## Project Structure
+```
+./
+|-- main.js                             (core engine)
+|-- plugins
+|-- |-- index.js                        (fetches plugin codes)
+|-- |-- missing-head-or-body-tag.js     (plugin that checks for missing/empty <head> & <body>)
+|-- samplepages                         (folder containing HTML pages to run our plugins on)
+```
 
 ## Meeting Notes
 [`docs/meetings`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/docs/meetings)
+
+## Postmortem
+[`docs/postmortem`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/docs/postmortem)
+
+## Progress
+[`docs/progress`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/docs/progress)
+
+## Features 
+[`docs/tasks`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/docs/tasks)
+
+
