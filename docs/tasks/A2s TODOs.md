@@ -69,4 +69,4 @@ We'll also aim to include the parts relelvant to the error in the message.
   
   
 ## Task Splitup
-  
+All members will pick a roughly equal number of plugins to work on for the remaining ~month. 
