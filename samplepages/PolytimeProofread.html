@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSC363A4</title>
+    <link rel="stylesheet" href="Mulliganaceous2.css">
+    <style>
+        * {
+            font-family: 'Noto Sans';
+        }
+    </style>
+</head>
+<body>
+    <h1>Polynomial Time Complexity<st>Hao Mack Yang Lee</st></h1>
+    <section>
+    <h2>Big O analysis of Polynomial functions</h2>
+        <p>
+            A polynomial function of degree <eqn>d</eqn> is <eqn>O(n<sup>d</sup>)</eqn>. Then, <eqn>f(n) = An<sup>d</sup> + &Sum;[0:d-1](A<sub>k</sub>n<sup>k</sup>)</eqn>. 
+        </p>
+        <p>
+            Thus, <eqn>∀ε > 0 ∃n<sub>0</sub> ≥ 0 ∃c<sub>0</sub> > 0: An<sup>d</sup> + &Sum;[0;d-1](A<sub>k</sub>n<sup>k</sup>) ≤ c<err>n<sup>d</sup></err></eqn>;
+            the polynomial is lower-bounded by a multiple of a single-term polynomial of the same degree for all sufficient <eqn>n</eqn>.
+        </p>
+        <p>
+            Let <eqn>c = A+d</eqn>, and <eqn>n<sub>0</sub> = A<sub>M</sub></eqn>, where <eqn>A<sub>M</sub> = max A<sub>k</sub> </eqn> or zero if all of the <eqn>A<sub>k</sub></eqn> are negative. <br/>
+
+            Then, <eqn>An<sup>d</sup> + &Sum;[0;d-1](A<sub>k</sub>n<sup>k</sup>) &leq; <eqn>An<sup>d</sup> + &Sum;[0;d-1](A<sub>M</sub>n<sup>k</sup>)</eqn></eqn>. <br />
+            For all <eqn>n &gt; n<sub>0</sub></eqn>, then 
+            <div style="text-indent: 0.25in;">
+                <eqn>An<sup>d</sup> + &Sum;[0;d-1](A<sub>M</sub>n<sup>k</sup>)</eqn></div>
+            <div style="text-indent: 0.25in;">
+                &le; <eqn>An<sup>d</sup> + &Sum;[0:d-1](nn<sup>k</sup>)</eqn>
+                = <eqn>An<sup>d</sup> + &Sum;[0;d-1](n<sup>k+1</sup>)</eqn></div>
+            <div style="text-indent: 0.25in;">
+                &le; <eqn>An<sup>d</sup> + &Sum;[0;d-1](n<sup>d</sup>)</eqn> as <eqn>d &geq; k+1 &geq; <serr>0</serr><err>1</err></eqn> for all <eqn>k</eqn></div>
+            <div style="text-indent: 0.25in;">
+                = <eqn>An<sup>d</sup> + d(n<sup>d</sup>)</eqn> = <eqn>(A+d)n<sup>d</sup></eqn></div>
+            
+        </p>
+        <p>
+            We conclude that <eqn>An<sup>d</sup> + &Sum;[0:d-1](A<sub>k</sub>n<sup>k</sup>) &leq; (A+d)n<sup>d</sup></eqn> for all <eqn>n > A<sub>M</sub></eqn>. 
+            Therefore, <eqn>f(n) ∈ O(n<sup>k</sup>)</sup></eqn>.
+        </p>
+    </section>
+
+    <section>
+    <h2>Concatenation of polynomial-time languages</h2>
+        <p>
+            If <eqn>A, B</eqn> are both polynomial-time languages over the language <eqn>&Sigma;<sup>*</sup></eqn>, then its concatenation <eqn>AB</eqn> is also polynomial-time.
+        </p>
+        <p>
+            Our approach is to build a loop-based structure which, given an input word <eqn>w</eqn>, then, for all possible <eqn>k ∈ [0:len(w)]</eqn> [as Python range], we check if
+            <eqn>w[0:k] ∈ A</eqn>. If this is true, then we check if <eqn>w[k:len(w)] ∈ B</eqn>.
+        </p>
+        <p>
+            The pseudocode accepts exactly when <eqn>w[0:k] ∈ A</eqn> is true, and then <eqn>w[k:len(w)] ∈ B</eqn> before we run out of iterations for <eqn>k</eqn>.
+        </p>
+        <codeblock><comm>'''Determine w is a concatenation of w1 and w2 where w1 ∈ A and w2 ∈ B.'''</comm>
+<b>def</b> isConcatenation(w, A, B):
+    <err><b>for</b> k in range(len(w)):</err>
+    <b>if</b> w[0:k] ∈ A:              <comm># Takes polynomial time</comm>
+        <b>return</b> w[k:len(w)] ∈ B. <comm># Takes polynomial time, if w[0:k] accepted</comm>
+        </codeblock>
+        <p>
+            The worst-case runtime occurs when for all <eqn>len(w)</eqn> values of <eqn>k</eqn>, the first substring <eqn>w[0:k] ∈ A</eqn> but the second substring <eqn>w[k:len(w)] ∉ B</eqn>. <br/>
+            Thus, for all possible ways to partition <eqn>w</eqn> into two pieces, both polynomial-time deciders are run but none of them got accepted. Thus, the total runtime is within
+            <eqn>n(an<sup>d<sub>1</sub></sup> + bn<sup>d<sub>2</sub></sup>)</eqn> where <eqn>n</eqn> is the length of the word; 
+            the runtime of deciding <eqn>w[0:k] ∈ A</eqn> is within <eqn>an<sup>d<sub>1</sub></eqn>; and
+            the runtime of deciding <eqn>w[k:len(w)] ∈ B</eqn> is within <eqn>bn<sup>d<sub>2</sub></eqn>.
+        </p>
+        <p>
+            As this is an algorithm that relies on two polynomial-algorithms up to a linear amount of times based on the length of <eqn>w</eqn>, this algorithm is also
+            polynomial time in <eqn>n, d<sub>M</sub></eqn> where <eqn>d<sub>M</sub></eqn> is the greater of <eqn>d<sub>1</sub>, d<sub>2</sub></eqn>. 
+            <err>It is <eqn>nO(n<sup>d<sub>M</sub></sup>) = O(n<sup>d<sub>M</sub>+1</sup>)</eqn>.</err>
+        </p>
+        <p>
+            The Church-Turing thesis states there is an associated polynomial-time Turing machine which does exactly what this algorithm does.
+        </p>
+    </section>
+
+    <section>
+    <h2>Polynomial-time reduction from a <br />polynomial-time language A to a nonclopen language B</h2>
+        <p>
+            The polynomial-time language <eqn>A</eqn> is polynomially reducible to <eqn>B</eqn>, where <eqn>B</eqn> is neither the empty set nor all of the language <eqn>&Sigma;<sup>*</sup></eqn>.
+            We can determine the word's membership of <eqn>A</eqn> simply by using the membership of <eqn>B</eqn> of a related word. Note <eqn>B</eqn> is not necessarily
+            computable or even CE.
+        </p>
+        <p>
+            Let <eqn>f</eqn> be a function such that for all <eqn>x ∈ &Sigma;<sup>*</sup></eqn>, <eqn>x ∈ A</eqn> exactly if <eqn>f(x) ∈ B</eqn>. 
+            <eqn>B</eqn> has to be neither the empty set nor the entirety of <eqn>&Sigma;<sup>*</sup></eqn> because both of these "clopen" languages only yield one out of two outcomes across
+            all words of the language.
+        </p>
+        <p>
+            Suppose we want to decide the membership of <eqn>x ∈ A</eqn>. To do that, find <eqn>f(x)</eqn>, which takes polynomial time to compute.
+            However, since <eqn>x ∈ A</eqn> can already be determined in polynomial time, we can trivially construct <eqn>f(x)</eqn> and assign constants <eqn>b ∈ B, c ∉ B</eqn> 
+            such that <eqn>f(x) = b</eqn> if <eqn> x ∈ A</eqn>, and <eqn>f(x) = c</eqn> if <eqn> x ∉ A</eqn>.
+        </p>
+        <p>
+            Computing <eqn>f(x)</eqn> takes the same polynomial time as it just involves determining <eqn>x ∈ A</eqn> [taking polynomial time, and yielding <eqn>b</eqn> or <eqn>c</eqn>
+            based on the result of <eqn>x ∈ A</eqn>]. Thus, <eqn>f(x)</eqn> is an "indicator" of set <eqn>A</eqn>.
+        </p>
+    </section>
+
+    <section>
+    <h2>Three-input looping problem</h2>
+        <p>
+            <eqn>LOOP</eqn> = { <eqn>(M, w<sub>1</sub>, w<sub>2</sub>, w<sub>3</sub>)</eqn> : <eqn>M</eqn> is a Turing machine that doesn’t halt on at least 2 of the <eqn>w</eqn> }
+        </p>
+        <p>
+            <eqn><ou>HP</ou></eqn> is the co-recursively enumerable looping problem for machine <eqn>M</eqn>, which is the "opposite" of the halting problem, but still undecidable.
+        </p>
+        <h3><eqn>LOOP</eqn> is polynomially decidable using the <eqn><ou>HP</ou></eqn> oracle.</h3>
+        <p>
+            Run <eqn><ou>HP</ou>(M, w<sub>1</sub>)</eqn> + <eqn><ou>HP</ou>(M, w<sub>2</sub>)</eqn> + <eqn><ou>HP</ou>(M, w<sub>3</sub>) ≥ 2</eqn>. <br/>
+            This takes 5 units of time, calling the oracle for <eqn><ou>HP</ou></eqn> three times, each taking a single unit of time, and then another two calls of addition letting
+            True as 1 and False as 0.
+        </p>
+        <p>
+            Exactly if at least two of the words loop, then <eqn>LOOP(M, w<sub>1</sub>, w<sub>2</sub>, w<sub>3</sub>)</eqn> is satisfied by the definition of <eqn>LOOP</eqn>. <br />
+            We reduced <eqn>LOOP</eqn> to <eqn><ou>HP</ou></eqn> in constant time.
+        </p>
+        <h3><eqn><ou>HP</ou></eqn> is polynomially decidable using the <eqn>LOOP</eqn> oracle.</h3>
+        <p>
+            Run <eqn>LOOP(M, w,w,w)</eqn>. This takes one unit of time using the oracle of <eqn>LOOP</eqn>.
+        </p>
+        <p>
+            If <eqn><ou>HP(w)</ou></eqn> is false, then all three of the inputs of <eqn>LOOP</eqn> represent halting languages, so <eqn>LOOP</eqn> is also false.
+            Otherwise, all three of the inputs, and thus at least two of the inputs of <eqn>LOOP</eqn> represent looping languages, so <eqn>LOOP</eqn> is also true. <br />
+            We reduced <eqn><ou>HP</ou></eqn> to <eqn>LOOP</eqn> in zeroth-degree polynomial time.
+        </p>
+    </body>
+    </section>
+
+    <section>
+    <h2>Pseudorandom number generators</h2>
+        <p>
+            A number generator, <eqn>G</eqn>, is a polynomial-time function that, if given a <eqn>n</eqn>-bit string <eqn>w</eqn>, then it yields a derived string with one more bit.
+        </p>
+        <p>
+            A decider is a Turing machine that halts on all inputs. CSPRING pseudorandomness means that for any polynomial-time decider, the chance that the decider accepts a generated string <eqn>G(w)</eqn> assuming
+            <eqn>w ∈ {0,1}<sup>n</sup></eqn> is randomly generated is approximately identical to the chance that the decided accepts a truly randomly generated 
+            <eqn>n+1</eqn> bit string <eqn>x ∈ {0,1}<sup>n+1</sup></eqn>.
+        </p>
+        <p>
+            Let <eqn>p<sub>D,G</sub>(n)</eqn> be the probability that given a randomly generated string in <eqn>w ∈ {0,1}<sup>n</sup></eqn>, the generated string <eqn>G(w)</eqn> is accepted by <eqn>D</eqn>.
+            Let <eqn>r<sub>D</sub>(n)</eqn> be the probability that given a truly randomly picked string <eqn>x</eqn> of length <eqn>n+1</eqn>, the picked string <eqn>x</eqn> is accepted by <eqn>D</eqn>.
+        </p>
+        <p>
+            We say that <eqn>G</eqn> is CSPRING if for all determinstic polynomial-time Turing machine <eqn>D</eqn>, for sufficiently long strings of length <eqn>n</eqn>, and any constant <eqn>c</eqn> we have:
+            <eqn>|p<sub>D,G</sub>(n) − r<sub>D</sub>(n)| &leq; <qt><qn>1</qn> <qd>n<sup>c</sup></qd></qt></eqn>. <br />
+            Thus, for long strings, the difference between the probability that the generated string is accepted compared to the randomly picked string is not more than a power of <eqn>n</eqn>.
+        </p>
+        <h3>The left-shift number generator <eqn>F(w)</eqn> is not pseudorandom.</h3>
+        <p>
+            Suppose the determinstic Turing machine <eqn>D</eqn> accepts the string <eqn>w</eqn> exactly if the last digit is a <eqn>1</eqn>.
+            A truly randomly generated string <eqn>w</eqn> has a half-half chance that a character in any place value is a one.
+        </p>
+        <p>
+            It follows that for all strings <eqn>w</eqn>, the generated value <eqn>F(w)</eqn> always ends with a zero, and thus it is rejected by <eqn>D</eqn>.
+            Then, <eqn>p<sub>D,F</sub>(n) = 0</eqn> and <eqn>r<sub>D</sub>(n) = 0.5</eqn> for all <eqn>n</eqn>. 
+        </p>
+        <p>
+            Thus, the difference <eqn>|p<sub>D,F</sub>(n) − r<sub>D</sub>(n)| = 0.5</eqn>; 
+            it might be greater than <eqn>1/n<sup>c</sup></eqn>, more technically when <eqn>n > 2<sup>1/c</sup></eqn>.
+        </p>
+        <newpage />
+        <h3>If <eqn><b>P</b> = <b>NP</b></eqn>, there are no pseudorandom number generators.</h3>
+        <p>
+            Let <eqn>H</eqn> be any number generator, which inputs a string from <eqn>{0,1}<sup>n</sup></eqn> and outputs a string to <eqn>{0,1}<sup>n+1</sup></eqn> in polynomial time. 
+            Let <eqn>L<sub>H</sub></eqn> be the set of all strings <eqn>y ∈ {0,1}<sup>n+1</sup></eqn> such that there exists an <eqn>x</eqn> where <eqn>H(x) = y</eqn>.
+        </p>
+        <p>
+            Suppose we are given output <eqn>y ∈ {0,1}<sup>n+1</sup></eqn>, and a certificate input <eqn>x</eqn>. 
+            Run <eqn>H(x)</eqn>, taking polynomial time to do so, outputting <eqn>y</eqn>.
+            We verified that <eqn>y ∈ L<sub>H</sub></eqn> within polynomial time, proving <eqn>L<sub>H</sub> ∈ <b>NP</b></eqn>.
+        </p>
+        <p>
+            Suppose <eqn><b>P</b> = <b>NP</b></eqn>. Then, there is a deterministic polynomial-time machine <eqn>D</eqn> that decides <eqn>L<sub>H</sub></eqn>.
+            Then, by the definition of <eqn>p<sub>D,H</sub>(n)</eqn>, the input <eqn>x ∈ {0,1}<sup>n</sup></eqn> is used to output the generated number <eqn>H(x)</eqn>.
+            Then, <eqn>D</eqn> always accepts generated value as it is in <eqn>L<sub>H</sub></eqn> from the definition of <eqn>L<sub>H</sub></eqn>.
+            Thus, <eqn>p<sub>D,H</sub>(n) = 1</eqn> for all <eqn>n</eqn>.
+        </p>
+        <p>
+            The generator <eqn>H</eqn> cannot be pseudorandom, as given a truly random string <eqn>y ∈ {0,1}<sup>n+1</sup></eqn>, the probability that <eqn>y</eqn> is being accepted
+            by <eqn>D</eqn> is not necessarily equal to 1; in fact it can be any arbitrary number as you allow <eqn>n</eqn> to vary. In fact, <eqn>r<sub>D</sub>(n)</eqn>
+            is allowed to be random, immediately stating that <eqn>|p<sub>D,F</sub>(n) − r<sub>D</sub>(n)| ≥ 1/n<sup>c</sup></eqn> for some <eqn>n</eqn>.
+        </p>
+    </section>
+</body>
+</html>
