@@ -15,8 +15,14 @@ if [[ "$#" -ne 0 ]]; then
 	usage
 fi
 
-pyversion=echo python3 --version | grep "Python 3*\\.[0-9][0-9]*\\.[0-9][0-9]*"
-sudo apt-get install python
-sudo apt-get install npm
+pyversion=$(python3 --version | grep "Python 3*\\.[0-9][0-9]*\\.[0-9][0-9]*")
+if [[ $pyversion -eq "" ]]; then
+	sudo apt-get install python
+fi
+npmversion=$(npm --version | grep "[0-9][0-9]*\\.[0-9][0-9]*\\.[0-9][0-9]*")
+if [[ $npmversion -eq "" ]]; then
+	sudo apt-get install npm
+fi
+
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - sudo apt-get install -y nodejs
 npm install
