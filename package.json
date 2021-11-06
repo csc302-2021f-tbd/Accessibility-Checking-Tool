@@ -4,6 +4,36 @@
 		"node": ">=16.6"
 	},
 	"dependencies": {
-		"jsdom": "^18.0.0"
+		"@babel/preset-env": "^7.16.0",
+		"babel-jest": "^27.3.1",
+		"jsdom": "^18.0.0",
+		"ts-jest": "^27.0.7"
+	},
+	"moduleNameMapper": {
+		"^lodash-es$": "lodash"
+	},
+	"devDependencies": {
+		"jest": "^27.3.1"
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"jest": {
+		"verbose": true,
+		"moduleNameMapper": {
+			"^lodash-es$": "lodash"
+		},
+		"preset": "ts-jest",
+    	"testEnvironment": "node",
+		"transform": {
+			"^.+\\.js": "<rootDir>/node_modules/babel-jest",
+			"^.+\\.[tj]s$": "ts-jest",
+			"^.+\\.(ts|tsx)?$": "ts-jest",
+			"node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+		},
+		"transformIgnorePatterns": [
+			"^.+\\.js$",
+			"node_modules/(?!variables/.*)"
+		]
 	}
 }

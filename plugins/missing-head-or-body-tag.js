@@ -1,4 +1,4 @@
-import { JSDOM } from "jsdom";
+// import { JSDOM } from "jsdom";
 
 export function fn(dom){
     let output = "Error: missing/empty ";
@@ -21,3 +21,6 @@ export function fn(dom){
     return [output, errors];
 
 }
+
+// module.exports = fn;
+export default fn;
