@@ -1,6 +1,6 @@
 // import { JSDOM } from "jsdom";
 
-function fn(dom){
+export function fn(dom){
     let output = "Error: missing/empty ";
     let errors = 0;
     if (dom.window.document.head.children.length === 0){
@@ -22,4 +22,5 @@ function fn(dom){
 
 }
 
-module.exports = fn;
+// module.exports = fn;
+export default fn;

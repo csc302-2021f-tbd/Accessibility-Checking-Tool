@@ -1,6 +1,9 @@
-const fs = require('fs');
-const JSDOM = require('jsdom').JSDOM;
-const fn = require('./missing-head-or-body-tag');
+// const fs = require('fs');
+import * as fs from 'fs';
+// const JSDOM = require('jsdom').JSDOM;
+import { JSDOM } from "jsdom";
+// const fn = require('./missing-head-or-body-tag');
+import fn from './missing-head-or-body-tag';
 
 test("full page",() => {
     let html = fs.readFileSync("samplepages/page.html");
