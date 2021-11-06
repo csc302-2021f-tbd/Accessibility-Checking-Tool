@@ -16,9 +16,14 @@ The engine loads the plugins and runs all of them on a local HTML page that is g
 1. Install the current [Node.js](https://nodejs.org/en/download/current/).
 1. Install npm.
 1. To install or update dependencies, run `npm install` in root dir.
-1. After building, to run the project, download an HTML file to check, then run:
-   `sh run.py <html page>` in root dir.
+1. After building, to run the project, download an HTML file to check, then run as shown in instruction below.
    This will parse the document, run the plugin checks on it. There are [`samplepages/`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/samplepages) to quickly check our program
+   
+## Running 
+- Run `sh run.py <html page>` in root dir.
+
+## Testing
+- Run `sh test.sh` in root dir
 
 ## Milestones
 
