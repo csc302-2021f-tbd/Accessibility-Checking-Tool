@@ -1,2 +1,9 @@
 missing-head-or-body-tag.js
+illogical-header.js
+textless.js
+missing-language.js
+untitled-title.js
+missing-id-input.js
+justified-text.js
+accessiblename-mismatch.js
 3.js

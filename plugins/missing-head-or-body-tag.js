@@ -1,5 +1,7 @@
 // import { JSDOM } from "jsdom";
 
+console.log("Running missing-tag plugin")
+
 export function fn(dom){
     let output = "Error: missing/empty ";
     let errors = 0;
