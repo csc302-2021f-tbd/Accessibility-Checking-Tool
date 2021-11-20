@@ -7,7 +7,7 @@ let pluginFileNames = [];
 let plugins = [];
 let char = "";
 
-console.log("Importing plugins...");
+// console.log("Importing plugins...");
 
 for (let i = 0; i < file.length; i++){
     if (file.charAt(i) == '\n'){
@@ -19,10 +19,10 @@ for (let i = 0; i < file.length; i++){
     }
 }
 
-console.log(pluginFileNames);
+// console.log(pluginFileNames);
 
 for (let i = 0; i < pluginFileNames.length; i++){
-	let {fn} = import("./" + pluginFileNames[i]);
+	let {fn} = await import("./" + pluginFileNames[i]);
 	plugins.push(fn);
 }
 
