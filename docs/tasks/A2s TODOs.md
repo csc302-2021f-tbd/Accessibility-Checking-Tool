@@ -9,32 +9,32 @@ We'll also aim to include the parts relelvant to the error in the message.
 
 ### Basic plugins: 
 
-1. A missing <head> or <body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty <body> element" or "Error missing <head> and <body> elements" 
+1. <strike>A missing <head> or <body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty <body> element" or "Error missing <head> and <body> elements"</strike>
 1. Illogical heading order (decreasing, so \<h2> followed by \<h1>) "Warning: \<h2> followed by \<h1>". Note that this has some extra rules.
 1. Image without alternative text would trigger: "Error: image .... doesn't have alternative text"
 
       Snippets that could trigger the error: `<img src="squiggle.gif" width="20" height="20" alt="" />` or `<img src="squiggle.gif" width="20" height="20" />` (empty or missing alt attribute)
-1. A link that contains no text. 
+1. A link that contains no text.
   
      Snippet: `<a href="//www.w3schools.com"></a>`
   
-     Error message: "Error: link <a href="//www.w3schools.com"></a> has no text".
+     Error message: "Error: link <a href="//www.w3schools.com"></a> has no text".~~
 1. Redundant link.
   
      Snippet: ```<a class="w3-bar-item w3-button" href="/jsref/default.asp"> JavaScript Reference </a> 
   <a class="w3-bar-item w3-button" href="/jsref/default.asp"> HTML DOM Reference </a>```
   
      Error message: "Error: 2 redundant links ... ..."
-1. HTML missing language attribute.
+1. <strike>HTML missing language attribute.
   
      Snippet: `<html>` instead of, for example, `<html lang="en">`
   
-     Error message: "Error: HTML element missing language attribute"
-1. HTML title that is: empty, untitled, no title, new page, or whatever place holder. this goes for filenames of the HTML as well.
+      Error message: "Error: HTML element missing language attribute"</strike>
+1. <strike>HTML title that is: empty, untitled, no title, new page, or whatever place holder. this goes for filenames of the HTML as well.
   
      Snippet: `<head> <title>Untitled</title> </head>`
      
-     Error message: "Error: page title error"
+      Error message: "Error: page title error"</strike>
 1. Links not visiually distinguishable from text. If a link isn't underlined, bold, etc. and has the same color as the surronding text, it's an error.
   
      Snippet: ```<head> <style type="text/css"> p a:link {text-decoration: none} p a:visited {text-decoration: none} p a:active {text-decoration: none} p a:hover {text-decoration: underline; color: red;} </style> </head> <body> <p>To find out more about the <a href="rain_in_spain.htm">rain in spain</a>there are many resources.</p> </body>``` 
