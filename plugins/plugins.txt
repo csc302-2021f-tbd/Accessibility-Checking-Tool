@@ -1,2 +1,3 @@
 missing-head-or-body-tag.js
 missing-lang-attr.js
+bad-html-title.js
