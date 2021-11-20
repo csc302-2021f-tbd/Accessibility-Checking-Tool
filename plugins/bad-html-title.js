@@ -1,6 +1,6 @@
 
 export function fn(dom){
-    let output = "Error: HTML missing or bad title";
+    let output = "Error: HTML missing/bad title";
     let errors = 0;
     let badTitles = ["untitled", "no title", "new page", "untitled page", "new page"]
     if (dom.window.document.head == null || 
