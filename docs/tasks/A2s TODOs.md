@@ -9,53 +9,63 @@ We'll also aim to include the parts relelvant to the error in the message.
 
 ### Basic plugins: 
 
-1. <strike>A missing <head> or <body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty <body> element" or "Error missing <head> and <body> elements"</strike>
+1. <strike>A missing <head> or <body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty <body> element" or "Error missing <head> and <body> elements"</strike> 
+     > missing-head-or-body-tag.js
 1. Illogical heading order (decreasing, so \<h2> followed by \<h1>) "Warning: \<h2> followed by \<h1>". Note that this has some extra rules.
+     > illogical-heading-order.js
 1. Image without alternative text would trigger: "Error: image .... doesn't have alternative text"
 
       Snippets that could trigger the error: `<img src="squiggle.gif" width="20" height="20" alt="" />` or `<img src="squiggle.gif" width="20" height="20" />` (empty or missing alt attribute)
+      > missing-alt-text.js
 1. A link that contains no text.
   
      Snippet: `<a href="//www.w3schools.com"></a>`
   
      Error message: "Error: link <a href="//www.w3schools.com"></a> has no text".~~
+     > missing-link-text.js
 1. Redundant link.
   
      Snippet: ```<a class="w3-bar-item w3-button" href="/jsref/default.asp"> JavaScript Reference </a> 
   <a class="w3-bar-item w3-button" href="/jsref/default.asp"> HTML DOM Reference </a>```
   
      Error message: "Error: 2 redundant links ... ..."
+     > redundant-link.js
 1. <strike>HTML missing language attribute.
   
      Snippet: `<html>` instead of, for example, `<html lang="en">`
   
       Error message: "Error: HTML element missing language attribute"</strike>
+      > missing-lang-attr.js
 1. <strike>HTML title that is: empty, untitled, no title, new page, or whatever place holder. this goes for filenames of the HTML as well.
   
      Snippet: `<head> <title>Untitled</title> </head>`
      
       Error message: "Error: page title error"</strike>
+      > bad-html-title.js
 1. Links not visiually distinguishable from text. If a link isn't underlined, bold, etc. and has the same color as the surronding text, it's an error.
   
      Snippet: ```<head> <style type="text/css"> p a:link {text-decoration: none} p a:visited {text-decoration: none} p a:active {text-decoration: none} p a:hover {text-decoration: underline; color: red;} </style> </head> <body> <p>To find out more about the <a href="rain_in_spain.htm">rain in spain</a>there are many resources.</p> </body>``` 
   
      Error message: "Error: link ... not visiually distinguishable from text"
+     > missing-link-style.js
 1. <strike>Missing id attribute in input field
   
      Snippet: `Phone number: (<input type="text" size="3">) <input type="text" size="3">-<input type="text" size="4">)` Here every chunk of the input field should have its own id.
   
       Error message: "Error: missing id attribute in input field" </strike>
+      > missing-id-attr-in-input-field.js
 1. Justified text
   
      Snippet: any `align="justify"` attribute in HTML or `{text-align: justify}` in CSS
   
      Error message: "Error: Justified text"
+     > justified-text.js
 1. Accessible name and visible label mismatch && Accessible name does not contain a match for the string of the visible label. If both are missing, it's an error.
   
      Snippet: `<button id="sitesearch" aria-label="Find in this site">Go</button>`
   
      Error message: "Error: Accessible name and visible label mismatch"
-  
+     > name-label-mismatch.js 
 
 ### Extra plugins:
   
