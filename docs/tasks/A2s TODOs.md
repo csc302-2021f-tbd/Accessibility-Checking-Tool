@@ -35,7 +35,7 @@ We'll also aim to include the parts relelvant to the error in the message.
      Snippet: `<head> <title>Untitled</title> </head>`
      
       Error message: "Error: page title error"</strike>
-1. Links not visiually distinguishable from text. If a link isn't underlined, bold, etc. and has the same color as the surronding text, it's an error.
+1. Links not visually distinguishable from text. If a link isn't underlined, bold, etc. and has the same color as the surronding text, it's an error.
   
      Snippet: ```<head> <style type="text/css"> p a:link {text-decoration: none} p a:visited {text-decoration: none} p a:active {text-decoration: none} p a:hover {text-decoration: underline; color: red;} </style> </head> <body> <p>To find out more about the <a href="rain_in_spain.htm">rain in spain</a>there are many resources.</p> </body>``` 
   
