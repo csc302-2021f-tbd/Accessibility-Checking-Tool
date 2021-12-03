@@ -1,12 +1,12 @@
 # Overview of Features Implemented
 
-- The core engine that parses a given HTML into a DOM tree, then loads the plugins, each plugin is a seperate JS file that exports a function that does one accessibilty check. There's a helper JS file that loads the JS functions from seperate file by fetching the names listed in a plugins.txt file inside /plugins. The helper JS gives back an array of JS functions. This array is looped in a foreach, then every element is given the DOM tree of an HTML to run its checks on. We're only suuporting one HTML file per run right now.
+- The core engine that parses a given HTML into a DOM tree, then loads the plugins, each plugin is a separate JS file that exports a function that does one accessibility check. There's a helper JS file that loads the JS functions from separate file by fetching the names listed in a plugins.txt file inside /plugins. The helper JS gives back an array of JS functions. This array is looped in a foreach, then every element is given the DOM tree of an HTML to run its checks on. We're only supporting one HTML file per run right now.
 
 - There's a /run.sh file which hardcodes an experimental command line argument required for node.js to run our JS files.
 
 - There's also a /test.sh which hardcodes a different command line argument for the same reason.
 
-- Every plugin lossley resembles one WCAG rule. We've simplified some violations in our checker.
+- Every plugin loosely resembles one WCAG rule. We've simplified some violations in our checker.
 
 ## Delivered plugins:
 
@@ -16,7 +16,7 @@
   
 1. Bad title: We check if a bad placeholder title is given for the HTML page, such as: Untitled, new page, etc. We only check for a certain subset of these bad titles. If the bad title is a substring inside a longer title, we don't flag the title as faulty, as we'll end up with false positives. 
   
-1. Links not visiually distinguishable from text: If a link in a <a> tag has text that isn't wrapped in a bold or underline, then an error is flagged. We check for HTML <b> and <u>, and inline style attributes. We don't check for internal or external CSS rules. We recursivley descend into children elements of the body, check for links, and check if that link has any bold or underline tag or inline style. We don't check for other decorations, but the infrastructure is there which makes it easily extendable.
+1. Links not visually distinguishable from text: If a link in a <a> tag has text that isn't wrapped in a bold or underline, then an error is flagged. We check for HTML <b> and <u>, and inline style attributes. We don't check for internal or external CSS rules. We recursively descend into children elements of the body, check for links, and check if that link has any bold or underline tag or inline style. We don't check for other decorations, but the infrastructure is there which makes it easily extendable.
   
 1. Missing id attribute in input field: The same recursive algorithm applied above is done here. If an input element is found, a getAttribute search is done to check if there's an id attribute, and then if it's not empty.
   
@@ -50,7 +50,7 @@
      Snippet: `<head> <title>Untitled</title> </head>`
      
       Error message: "Error: page title error"
-1. Links not visually distinguishable from text. If a link isn't underlined, bold, etc. and has the same color as the surronding text, it's an error.
+1. Links not visually distinguishable from text. If a link isn't underlined, bold, etc. and has the same color as the surrounding text, it's an error.
   
      Snippet: ```<head> <style type="text/css"> p a:link {text-decoration: none} p a:visited {text-decoration: none} p a:active {text-decoration: none} p a:hover {text-decoration: underline; color: red;} </style> </head> <body> <p>To find out more about the <a href="rain_in_spain.htm">rain in spain</a>there are many resources.</p> </body>``` 
   
@@ -73,4 +73,4 @@
   
   
  ## How we've met the acceptance criteria:
-  - For every implemented plugin we have a corresponding .test.js file ran using jest. All these files are in /tests. Every test file runs only its plugin, and runs different test pages found in /samplepages. Some pages have no errors and some have errors in different ways to show that our code successfuly detects errors in clear and corner cases. All the tests can be ran by running sh test.sh from the root dir.
+  - For every implemented plugin we have a corresponding .test.js file ran using jest. All these files are in /tests. Every test file runs only its plugin, and runs different test pages found in /samplepages. Some pages have no errors and some have errors in different ways to show that our code successfully detects errors in clear and corner cases. All the tests can be ran by running sh test.sh from the root dir.
