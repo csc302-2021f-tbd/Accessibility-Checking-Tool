@@ -2,3 +2,4 @@ missing-head-or-body-tag.js
 missing-lang-attr.js
 bad-html-title.js
 missing-id-attr-in-input-field.js
+links-not-visually-distinguishable-from-text.js
