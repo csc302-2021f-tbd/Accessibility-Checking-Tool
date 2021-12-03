@@ -39,7 +39,7 @@ We'll also aim to include the parts relelvant to the error in the message.
   
      Snippet: ```<head> <style type="text/css"> p a:link {text-decoration: none} p a:visited {text-decoration: none} p a:active {text-decoration: none} p a:hover {text-decoration: underline; color: red;} </style> </head> <body> <p>To find out more about the <a href="rain_in_spain.htm">rain in spain</a>there are many resources.</p> </body>``` 
   
-     Error message: "Error: link ... not visiually distinguishable from text"
+     Error message: "Error: link ... not visually distinguishable from text"
 1. <strike>Missing id attribute in input field
   
      Snippet: `Phone number: (<input type="text" size="3">) <input type="text" size="3">-<input type="text" size="4">)` Here every chunk of the input field should have its own id.
