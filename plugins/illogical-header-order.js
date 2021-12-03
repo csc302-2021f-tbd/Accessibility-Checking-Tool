@@ -1,5 +1,5 @@
 export function fn(dom) {
-    let output = "Error: illogical order ";
+    let output = "Warning: illogical order ";
     let errors = 0;
 
     // TODO: function body for plugin 2
