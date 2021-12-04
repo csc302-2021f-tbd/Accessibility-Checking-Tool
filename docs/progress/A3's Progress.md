@@ -16,7 +16,7 @@
   
 1. Bad title: We check if a bad placeholder title is given for the HTML page, such as: Untitled, new page, etc. We only check for a certain subset of these bad titles. If the bad title is a substring inside a longer title, we don't flag the title as faulty, as we'll end up with false positives. 
   
-1. Links not visually distinguishable from text: If a link in a <a> tag has text that isn't wrapped in a bold or underline, then an error is flagged. We check for HTML <b> and <u>, and inline style attributes. We don't check for internal or external CSS rules. We recursively descend into children elements of the body, check for links, and check if that link has any bold or underline tag or inline style. We don't check for other decorations, but the infrastructure is there which makes it easily extendable.
+1. Links not visually distinguishable from text: If a link in a <a> tag has text that isn't wrapped in a bold or underline, then an error is flagged. We check for HTML \<b>, \<u>, and inline style attributes. We don't check for internal or external CSS rules. We recursively descend into children elements of the body, check for links, and check if that link has any bold or underline tag or inline style. We don't check for other decorations, but the infrastructure is there which makes it easily extendable.
   
 1. Missing id attribute in input field: The same recursive algorithm applied above is done here. If an input element is found, a getAttribute search is done to check if there's an id attribute, and then if it's not empty.
   
