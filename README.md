@@ -34,10 +34,10 @@ The engine loads the plugins and runs all of them on a local HTML page that is g
    This will parse the document, run the plugin checks on it. There are [`samplepages/`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/tree/main/samplepages) to quickly check our program.
 
 ## Milestones
-1. Built the core engine that can load plugins that are responsible for identifying problems. The core should be responsible for parsing the DOM and producing the output error report. This should be accessible over the command-line.
-1. Built plugins that identfy a specific accessibility violation.
-1. Built the rest of the plugins specified in [`docs/tasks/A2s TODOs`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/blob/main/docs/tasks/A2s%20TODOs.md)
-1. Checked for invalid plugins in our engine.
+1. Build the core engine that can load plugins that are responsible for identifying problems. The core should be responsible for parsing the DOM and producing the output error report. This should be accessible over the command-line.
+1. Build plugins that identfy a specific accessibility violation.
+1. Build the rest of the plugins specified in [`docs/tasks/A2s TODOs`](https://github.com/csc302-2021f-tbd/Accessibility-Checking-Tool/blob/main/docs/tasks/A2s%20TODOs.md)
+1. Check for invalid plugins in our engine.
 
 ## Project Structure
 ```
