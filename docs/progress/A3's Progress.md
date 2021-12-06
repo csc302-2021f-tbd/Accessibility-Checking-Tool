@@ -24,6 +24,8 @@
   
   1. Redundant link: If two links are close to each other and refer to the same page. This would require a good metric for detecting close enough links that is easier seen in a rendered page than in HTML format. Since we were short on time, and prioritized making our tool avoid flagging false positive errors, we decided to skip this one. 
   
+  1. Illogical heading order: decreasing, so \<h2> followed by \<h1>, but with extra rules that allow for many \<h2> headers each having many \<h3> children for example, or skipping a heading entirely (from \<h1> to \<h3> directly). We couldn’t figure out how to only capture the WCAG errors without any false positives given our time constraints, so we skipped this plugin.
+  
 ## The acceptance criteria for all plugins, delivered and undelivered:
 
 1. A missing \<head> or \<body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty \<body> element" or "Error missing \<head> and \<body> elements"
