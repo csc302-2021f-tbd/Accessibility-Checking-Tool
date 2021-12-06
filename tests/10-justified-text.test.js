@@ -14,5 +14,5 @@ test("use of allowed alignments",() => {
 test("use of justified alignment",() => {
     let html = fs.readFileSync("samplepages/10-page-with-justified-text.html");
     let page = new JSDOM(html);
-    expect(fn(page)).toStrictEqual(["Error: use of justified text alignment ",2]);
+    expect(fn(page)).toStrictEqual(["Error: use of justified text alignment ",1]);
 });

@@ -12,7 +12,7 @@ test("links with text and images",() => {
 });
 
 test("link with missing text",() => {
-    let html = fs.readFileSync("samplepages/4-links-no-text.html");
+    let html = fs.readFileSync("samplepages/4-link-no-text.html");
     let page = new JSDOM(html);
     expect(fn(page)).toStrictEqual(["Error: missing/empty link text ",3]);
 });
