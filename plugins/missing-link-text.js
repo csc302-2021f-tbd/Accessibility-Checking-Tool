@@ -20,8 +20,8 @@ export function fn(dom) {
 export function helper(dom, children, output = []) {
     for (let i=0; i < children.length; i++) {
         let item = children.item(i);
-        // TODO: think about whether this check needs to be more detailed
-        if (item.tagName === "A" && !(item.innerHTML === ""))
+        // <a> and innerHTML doesn't contain non-whitespace characters 
+        if (item.tagName === "A" && (item.innerHTML.search(/\S+/g) < 0))
             output.push("Error: " + item.outerHTML);
 
         if (item.children.length > 0) 
