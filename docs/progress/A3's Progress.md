@@ -26,6 +26,8 @@
   
   1. Illogical heading order: decreasing, so \<h2> followed by \<h1>, but with extra rules that allow for many \<h2> headers each having many \<h3> children for example, or skipping a heading entirely (from \<h1> to \<h3> directly). We couldn’t figure out how to only capture the WCAG errors without any false positives given our time constraints, so we skipped this plugin.
   
+  1. Accessible name and visible label mismatch && Accessible name does not contain a match for the string of the visible label. If both are missing, it's an error. It applies differently to different elements in a way we didn't know, so for the same reasons above, we skipped it.
+  
 ## The acceptance criteria for all plugins, delivered and undelivered:
 
 1. A missing \<head> or \<body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty \<body> element" or "Error missing \<head> and \<body> elements"
