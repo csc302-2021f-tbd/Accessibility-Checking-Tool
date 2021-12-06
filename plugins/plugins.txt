@@ -3,3 +3,6 @@ missing-lang-attr.js
 bad-html-title.js
 missing-id-attr-in-input-field.js
 links-not-visually-distinguishable-from-text.js
+justified-text.js
+missing-alt-text.js
+missing-link-text.js
