@@ -17,6 +17,10 @@ We've missed some of our plugins listed in A3:
 We've also missed milestone 4 completely. Initially we should have implemented a way in our engine to detect if one of the plugins supplied was actually valid. This was the forth goal and we haven't delivered on 3 completely, so we skipped milestone 4 due to prioritizing. Our acceptance criteria is completely around milestone 3 goals, so it took a higher priority.
 We've also skipped processing inernal and external CSS rules. We didn't have time to experiment with how to correctly get the rules corresponding to elements, so we didn't want to allocate time to implementing something that might end up being broken or incomplete.
 
+We’ve also simplified some of our implemented plugins, which means they don’t exhaustively check for one WCAG rule, instead we’ve chosen to focus more on making our tool only report errors if we’re sure they’re errors, instead of trying to capture a wider area of errors and potentially falsely flagging a normal piece of HTML.
+Some other simplification we’ve made is to not guarantee correct results in weirdly formatted HTML pages with too many spaces, as we didn’t use regular expressions in some of our checks where it made more sense to do so.
+
+
 ## Adjustments
 
 Our adjustment is that we have to communicate more consistently about our progress on A3 tasks, as well as assign non-coding tasks and ensure that they are completed.
