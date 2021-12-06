@@ -30,6 +30,7 @@ export function helper(dom, children, output = []) {
         if (item.children.length > 0) 
             output = helper(dom, item.children, output);
     }
+    return output;
 }
 
 export default fn;
