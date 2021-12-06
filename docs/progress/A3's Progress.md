@@ -26,7 +26,7 @@
   
 ## The acceptance criteria for all plugins, delivered and undelivered:
 
-1. A missing <head> or <body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty <body> element" or "Error missing <head> and <body> elements"
+1. A missing \<head> or \<body> tag. The output would be "Error: missing/empty <head> element" or "Error: missing/empty \<body> element" or "Error missing \<head> and \<body> elements"
 1. Illogical heading order (decreasing, so \<h2> followed by \<h1>) "Warning: \<h2> followed by \<h1>". Note that this has some extra rules.
 1. Image without alternative text would trigger: "Error: image .... doesn't have alternative text"
 
