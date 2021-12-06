@@ -11,8 +11,9 @@ export function fn(dom) {
         errors = output.length;
         // console.debug(errors);
     }
-    // TODO: check that return is correct
+    
     if (errors === 0) return ["", errors];
+    output = "Error: use of justified text alignment ";
     return [output, errors];
 }
 
