@@ -75,4 +75,4 @@
   
   
  ## How we've met the acceptance criteria:
-  - For every implemented plugin we have a corresponding .test.js file ran using jest. All these files are in /tests. Every test file runs only its plugin, and runs different test pages found in /samplepages. Some pages have no errors and some have errors in different ways to show that our code successfully detects errors in clear and corner cases. All the tests can be ran by running sh test.sh from the root dir.
+  - For every implemented plugin we have a corresponding .test.js file ran using jest. All these files are in /tests. Every test file runs only its plugin, and runs different test pages found in /samplepages. By having each test run only one plugin and check for its correctness, it's easier to isolate errors and extend our program without too much hassle. We've created many pages that violate some specific rules and others that are close to violating them, but don't. Some pages have no errors and some have errors in different ways to show that our code successfully detects errors in clear and corner cases. All the tests can be ran by running sh test.sh from the root dir. 
