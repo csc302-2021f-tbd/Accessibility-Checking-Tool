@@ -11,7 +11,7 @@ export function fn(dom) {
         errors = output.length;
         // console.debug(errors);
     }
-
+    // TODO: check that return is correct
     if (errors === 0) return ["", errors];
     return [output, errors];
 }
