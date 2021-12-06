@@ -12,6 +12,9 @@
 
 1. Missing head or body tag: This plugin looks through the DOM tree to check if either of the Head or Body tags are empty or missing. It does so by getting the length of the parent node in the DOM tree that contains the head and body elements as children, checks if they exist, then if their children.length field is 0. 
 
+1. Image without alternative text. examples that could trigger the error: `<img src="squiggle.gif" width="20" height="20" alt="" />` or `<img src="squiggle.gif" width="20" height="20" />` (empty or missing alt attribute)
+1. A link that contains no text. example: `<a href="//www.w3schools.com"></a>`
+
 1. HTML missing language attribute: If the <HTML> tag is missing the attribute lang="xx", where xx is any valid language code, an error is captured. We do this by first checking if the lang attribute exists. If it does, we check if a valid language is given by hardcoding a list of all language codes we know grabbed from W3 and check against them one by one. If none exist in the lang attribute, then a faulty language is provided and an error is flagged.
   
 1. Bad title: We check if a bad placeholder title is given for the HTML page, such as: Untitled, new page, etc. We only check for a certain subset of these bad titles. If the bad title is a substring inside a longer title, we don't flag the title as faulty, as we'll end up with false positives. 
@@ -19,6 +22,8 @@
 1. Links not visually distinguishable from text: If a link in a <a> tag has text that isn't wrapped in a bold or underline, then an error is flagged. We check for HTML \<b>, \<u>, and inline style attributes. We don't check for internal or external CSS rules. We recursively descend into children elements of the body, check for links, and check if that link has any bold or underline tag or inline style. We don't check for other decorations, but the infrastructure is there which makes it easily extendable.
   
 1. Missing id attribute in input field: The same recursive algorithm applied above is done here. If an input element is found, a getAttribute search is done to check if there's an id attribute, and then if it's not empty.
+  
+1. Justified text: any `align="justify"` attribute in HTML would trigger an error.
   
 ## Undelivered plugins:
   
